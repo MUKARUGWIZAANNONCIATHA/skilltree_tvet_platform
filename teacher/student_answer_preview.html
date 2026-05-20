@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Answer Interface Preview</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 30px auto; padding: 20px; background: #f5f7fa; }
+        .assessment-container { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .question { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e0e0e0; }
+        .question-title { font-weight: 600; margin-bottom: 8px; }
+        .question-text { margin-bottom: 12px; }
+        .marks { color: #666; font-size: 12px; margin-left: 10px; }
+        .options { margin-left: 20px; }
+        .option { margin: 8px 0; }
+        input[type="text"], textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; }
+        .matching-pair { display: flex; gap: 10px; margin: 8px 0; align-items: center; }
+        .matching-pair select { width: 150px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .steps { list-style: none; padding: 0; }
+        .steps li { margin: 5px 0; }
+        .btn-submit { background: #4CAF50; color: white; border: none; padding: 10px 25px; border-radius: 30px; cursor: pointer; margin-top: 20px; }
+        h2 { color: #1a1a2e; }
+    </style>
+</head>
+<body>
+<div class="assessment-container">
+    <h2>📋 Sample Assessment – Introduction to Databases</h2>
+    <p>Instructions: Answer all questions. Section A is compulsory. Section B: choose 3 of 5. Section C: choose 1 of 2.</p>
+
+    <!-- Section A: Multiple Choice -->
+    <div class="question">
+        <div class="question-title">Question 1 (Multiple Choice) <span class="marks">[3 marks]</span></div>
+        <div class="question-text">What is a primary key in a database?</div>
+        <div class="options">
+            <label class="option"><input type="radio" name="q1"> A) A field that uniquely identifies a record</label>
+            <label class="option"><input type="radio" name="q1"> B) A field that can be null</label>
+            <label class="option"><input type="radio" name="q1"> C) A foreign key reference</label>
+            <label class="option"><input type="radio" name="q1"> D) An index that speeds up queries</label>
+        </div>
+    </div>
+
+    <!-- Section A: True/False -->
+    <div class="question">
+        <div class="question-title">Question 2 (True/False) <span class="marks">[3 marks]</span></div>
+        <div class="question-text">"A foreign key must reference a primary key in another table."</div>
+        <div class="options"><label><input type="radio" name="q2"> True</label> <label><input type="radio" name="q2"> False</label></div>
+    </div>
+
+    <!-- Section A: Matching (interactive) -->
+    <div class="question">
+        <div class="question-title">Question 3 (Matching) <span class="marks">[3 marks]</span></div>
+        <div class="question-text">Match the SQL command to its function.</div>
+        <div class="matching-pair"><span style="width:150px;">1. SELECT</span> <select><option>-- choose --</option><option>Retrieves data</option><option>Deletes a table</option></select></div>
+        <div class="matching-pair"><span style="width:150px;">2. DELETE</span> <select><option>-- choose --</option><option>Removes rows</option><option>Adds a column</option></select></div>
+        <div class="matching-pair"><span style="width:150px;">3. ALTER</span> <select><option>-- choose --</option><option>Modifies structure</option><option>Inserts records</option></select></div>
+    </div>
+
+    <!-- Section A: Fill Table -->
+    <div class="question">
+        <div class="question-title">Question 4 (Fill Table) <span class="marks">[3 marks]</span></div>
+        <div class="question-text">Complete the table below. Fill in the missing SQL commands.</div>
+        <table><tr><th>Operation</th><th>SQL Command</th></tr><tr><td>Select all columns from users</td><td><input type="text" placeholder="Your answer"></td></tr><tr><td>Insert a new row</td><td><input type="text" placeholder="Your answer"></td></tr></table>
+    </div>
+
+    <!-- Section A: Arrange Steps -->
+    <div class="question">
+        <div class="question-title">Question 5 (Arrange Steps) <span class="marks">[3 marks]</span></div>
+        <div class="question-text">Drag and drop to order the steps for creating a database.</div>
+        <ul class="steps" id="stepsSortable">
+            <li>1. Design the schema</li>
+            <li>2. Execute CREATE DATABASE</li>
+            <li>3. Create tables</li>
+            <li>4. Insert sample data</li>
+        </ul>
+        <p><em>(In a real implementation, use drag‑and‑drop or numbered selects.)</em></p>
+    </div>
+
+    <!-- Section B: Short Answer -->
+    <div class="question">
+        <div class="question-title">Section B – Question 1 (Choose 3 of 5) <span class="marks">[10 marks]</span></div>
+        <div class="question-text">Explain the purpose of indexing in a database. Provide an example.</div>
+        <textarea rows="3" placeholder="Your answer..."></textarea>
+    </div>
+
+    <!-- Section C: Essay -->
+    <div class="question">
+        <div class="question-title">Section C – Question 1 (Choose 1 of 2) <span class="marks">[15 marks]</span></div>
+        <div class="question-text">Discuss the advantages and disadvantages of using a relational database versus a NoSQL database. Give real‑world scenarios for each.</div>
+        <textarea rows="5" placeholder="Write your essay here..."></textarea>
+    </div>
+
+    <button class="btn-submit">Submit Assessment</button>
+    <p style="margin-top:15px; font-size:12px; color:#888;">Note: This is a preview of how students will see the questions. Dynamic parts (matching, drag‑and‑drop) are simplified here; in production they would be fully interactive.</p>
+</div>
+</body>
+</html>

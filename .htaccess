@@ -1,0 +1,47 @@
+# Path: /.htaccess
+# URL Rewriting & Security
+
+RewriteEngine On
+
+# Redirect to HTTPS (Uncomment in production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(config|includes|vendor|logs)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Custom error pages
+ErrorDocument 404 /index.php?error=404
+ErrorDocument 403 /index.php?error=403
+ErrorDocument 500 /index.php?error=500
+
+# URL Rewriting for clean URLs
+RewriteRule ^login$ /includes/auth/login.php [L,NC]
+RewriteRule ^register$ /includes/auth/register.php [L,NC]
+RewriteRule ^logout$ /includes/auth/logout.php [L,NC]
+RewriteRule ^dashboard$ /student/dashboard.php [L,NC]
+
+# Prevent access to .env file
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
